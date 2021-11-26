@@ -1,7 +1,7 @@
 import React from "react";
 import Information from "./Infomation";
 import '../css/contact.scss';
-
+import axios from "axios";
 class Addnew extends React.Component{
     
     constructor(props) {
@@ -18,31 +18,77 @@ class Addnew extends React.Component{
         }
     };
 
-    handletitleChange: function(e) {
+    handletitleChange= function(e) {
         this.setState({
             news: {
                 title : e.target.value,
-                summary : this.state.summary,
-                content : this.state.content,
+                summary : this.state.news.summary,
+                content : this.state.news.content,
                 image : "hoian.jpg",
-                cetogory : this.state.cetogory,
+                cetogory : this.state.news.cetogory,
 
             }
         });
      };
 
-     handlesummaryChange: function(e) {
+     handlesummaryChange= function(e) {
         this.setState({
             news: {
-                title : this.state.title,
+                title : this.state.news.title,
                 summary : e.target.value,
-                content : this.state.content,
+                content : this.state.news.content,
                 image : "hoian.jpg",
-                cetogory : this.state.cetogory,
+                cetogory : this.state.news.cetogory,
 
             }
         });
      };
+
+     handlecontentChange= function(e) {
+        this.setState({
+            news: {
+                title : this.state.news.title,
+                summary : this.state.news.summary,
+                content : e.target.value,
+                image : "hoian.jpg",
+                cetogory : this.state.news.cetogory,
+
+            }
+        });
+     };
+
+     handlecetogoryChange= function(e) {
+        this.setState({
+            news: {
+                title : this.state.news.title,
+                summary : this.state.news.summary,
+                content : this.state.news.content,
+                image : "hoian.jpg",
+                cetogory : e.target.value,
+
+            }
+        });
+     };
+
+     handleSubmit = (event) => {
+        event.preventDefault();
+        
+        axios
+          .post("/api/new", this.state.news, {
+            headers: {
+              apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
+            },
+          })
+          .then((response) => {
+              alert(" Thêm dữ liệu thành công ")
+            })
+          .catch((error) => alert(error));
+      };
+
+      componentDidMount(){
+            this.props.history.push('/Home')
+      }
+     
 
     render(){
         return(
@@ -57,15 +103,15 @@ class Addnew extends React.Component{
                         <div className="contact__touch--get-information">
                             <form>
                                 <label>Title</label>
-                                <input placeholder="Enter your Title"></input>
+                                <input placeholder="Enter your Title" onChange={(event) => this.handletitleChange(event)} ></input>
                                 <label>Summary</label>
-                                <input placeholder="Enter your Summary"></input>
+                                <input placeholder="Enter your Summary" onChange={(event) => this.handlesummaryChange(event)} ></input>
                                 <label>Content</label>
-                                <textarea placeholder="Enter your Content"></textarea>
+                                <textarea placeholder="Enter your Content" onChange={(event) => this.handlecontentChange(event)} ></textarea>
                                 <label>Cetogory</label>
-                                <input placeholder="Enter your Cetogory"></input>
+                                <input placeholder="Enter your Cetogory" onChange={(event) => this.handlecetogoryChange(event)} ></input>
                             </form>
-                            <button>Submit</button>
+                            <button onClick= {(event) => this.handleSubmit(event)}>Submit</button>
                         </div>
                         
                     </div>
