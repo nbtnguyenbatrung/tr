@@ -1,0 +1,57 @@
+.detail{
+    width: 60%;
+    display: flex;
+    margin: 3rem auto;
+    &__infor{
+        width: 30%;
+        &--me{
+            margin-top: 2rem;
+            margin-right: 3rem;
+            background-color: white;
+            text-align: center;
+            border-radius: 1rem;
+        }
+    };
+    &__content{
+        &--details{
+            background-color: white;
+            border-radius: 1rem;
+            &-image{
+                margin-top: 2rem;
+                & img{
+                    border-radius: 1rem;
+                    height: 20rem;
+                    width: 100%;
+                }
+            }
+            &-title{
+                margin: 2rem 2rem 0 2rem ;
+                font-size: 1.5rem;
+            }
+            &-date{
+                display: flex;
+                margin: 2rem 2rem 2rem 2rem ;
+                color: gray;
+                &-datetime{
+                    padding-right: 2rem;
+                    border-right: 1px solid gray;
+                }
+                &-cetogory{
+                    margin-left: 2rem;
+                }
+            }
+            &-summary{
+                color: gray;
+                margin: 2rem 2rem 0 2rem ;
+                padding-bottom: 2rem;
+            }
+        }
+        & button{
+            margin-top: 2rem;
+            color: white;
+            background-color: gray;
+            border-radius: 0.5rem;
+            border : 0;
+        }
+    }
+}

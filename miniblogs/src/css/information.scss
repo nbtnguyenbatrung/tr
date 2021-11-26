@@ -1,0 +1,47 @@
+
+
+.information {
+    & *{
+        margin: 2rem 2rem ;
+    }
+    &__image{
+        &--avartar{
+            border-radius: 10rem;
+            width: 9rem;
+        }
+    }
+    &__content{
+        text-align: left;
+    }
+    &__future{
+        & *{
+            margin-left: 0;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        &--content1,&--content2{
+            color: gray;
+        }
+    }
+    &__contact{
+        margin-top: 1rem;
+        &--text{
+            margin-top: 1rem;
+            margin-left: 0;
+            text-align: left;
+            color: gray;
+            padding-bottom: 1rem;
+        }
+        &--fa{
+            margin-top: 0;
+            display: flex;
+            margin-left: 0;
+            margin-bottom: 1rem;
+            & i{
+                font-size: 2rem;
+                margin: 0;
+                margin-right: 2rem;
+            }
+        }
+    }
+}
