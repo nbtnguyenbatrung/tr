@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import '../css/MInibblogs.scss';
 
@@ -8,7 +7,7 @@ class Miniblogs extends React.Component{
         return(
             <div className="nav">
                 <h3>
-                    <Link to="/Home"> <h3>Denali</h3> </Link>
+                    <a href="/Home"> <h3>Denali</h3> </a>
                 </h3>
                 
                 <ul className="nav__link">

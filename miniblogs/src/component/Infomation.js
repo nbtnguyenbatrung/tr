@@ -1,7 +1,46 @@
 import React from "react";
 import "../css/information.scss";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+
 class Information extends React.Component{
+
+
+    constructor(props){
+        super(props);
+        this.state = {
+            new: []
+        }
+    }
+
+    componentDidMount(){
+        axios
+            .get("/api/new", {
+                headers: {
+                    apikey: '691c5597-e7d2-4c06-af49-f9369b367783',
+                }
+            })
+            .then(res => {
+                this.setState({
+                    new: res.data,
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    
     render() {
+        const randomFeatured = this.state.new.sort(() => Math.random() - 0.5).slice(0 ,5);
+        const Featured = randomFeatured.map((news, index)=>{
+            return (
+                <div className="information__future--content1">
+                        <Link to={"/Detail/" + news.id }>{news.title}</Link>
+                </div>
+            );
+        });
         return (
             <div className="information">
                 <div className="information__image">
@@ -15,12 +54,7 @@ class Information extends React.Component{
                     <div className="information__future--title">
                         Featured Posts :
                     </div>
-                    <div className="information__future--content1">
-                        According a funnily until pre-set or arrogant well cheerful 
-                    </div>
-                    <div className="information__future--content2">
-                        Overlaid the jeepers uselessly much excluding
-                    </div>
+                    {Featured}
                 </div>
                 <hr style={{width : '40%'}}/>
                 <div className="information__contact">

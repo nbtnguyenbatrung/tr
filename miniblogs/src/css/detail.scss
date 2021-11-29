@@ -13,9 +13,11 @@
         }
     };
     &__content{
+        width: 100%;
         &--details{
             background-color: white;
             border-radius: 1rem;
+            
             &-image{
                 margin-top: 2rem;
                 & img{

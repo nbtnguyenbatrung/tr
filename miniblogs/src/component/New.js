@@ -5,7 +5,7 @@ function New(props){
     return(
         <div className="new">
             <div className="new__image">
-                <img src={require(`../img/${props.new.image}`).default} alt="anh"/>
+                <img src={(`${props.new.image}`)} alt="anh"/>
             </div>
             <div className="new__content">
                 <div className="new__content--title">

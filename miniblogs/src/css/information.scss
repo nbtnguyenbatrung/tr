@@ -21,6 +21,10 @@
         }
         &--content1,&--content2{
             color: gray;
+            & a{
+                text-decoration: none;
+                color: gray;
+            }
         }
     }
     &__contact{

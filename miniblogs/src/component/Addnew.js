@@ -71,7 +71,6 @@ class Addnew extends React.Component{
      };
 
      handleSubmit = (event) => {
-        event.preventDefault();
         
         axios
           .post("/api/new", this.state.news, {
@@ -81,14 +80,14 @@ class Addnew extends React.Component{
           })
           .then((response) => {
               alert(" Thêm dữ liệu thành công ")
+              this.home()
             })
           .catch((error) => alert(error));
       };
-
-      componentDidMount(){
-            this.props.history.push('/Home')
-      }
      
+      home = ()=> {
+        window.location.href("http://localhost:3000/Home")
+      }
 
     render(){
         return(
