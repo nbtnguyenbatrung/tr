@@ -49,7 +49,7 @@ class Home extends React.Component {
                     apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
                 },
                 params: {
-                    'Search New': this.state.title
+                    SearchNew: this.state.title
                 }
             })
             .then((response) => {
