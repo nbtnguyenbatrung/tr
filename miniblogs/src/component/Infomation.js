@@ -95,7 +95,7 @@ const Information = () => {
                 <div className="information__future--title">
                     Featured Posts :
                 </div>
-                {news.sort(() => Math.random() - 0.5).slice(0 ,5).map((news) => (
+                {news.slice(0 ,5).map((news) => (
                     <div className="information__future--content1">
                         <Link to={"/Detail/" + news.id}>{news.title}</Link>
                     </div>

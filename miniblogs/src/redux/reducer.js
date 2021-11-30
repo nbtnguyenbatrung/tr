@@ -2,7 +2,6 @@ import * as types from "./actionType"
 
 const initialState = {
     news: [],
-    loading: true,
     newss : {}
 }
 
@@ -12,32 +11,27 @@ const usersReducers = (state = initialState, action) => {
             return {
                 ...state,
                 news: action.payload,
-                loading: false
             }
         case types.POST_NEW:
         case types.GET_SEARCH_NEWS:
             return {
                 ...state,
-                newss: action.payload,
-                loading: false
+                news: action.payload,
             }
         case types.GET_NEW:
             return {
                 ...state,
                 newss: action.payload,
-                loading: false
             }
         case types.GET_CONTACT:
             return {
                 ...state,
                 news: action.payload,
-                loading: false
             }
         case types.POST_CONTACT:
         case types.PUT_CONTACT:
             return {
                 ...state,
-                loading: false
             }
         default:
             return state
