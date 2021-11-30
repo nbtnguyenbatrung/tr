@@ -1,6 +1,7 @@
 import axios from "axios"
 import * as types from "./actionType"
 
+
 const getNews = (news) => ({
     type: types.GET_NEWS,
     payload: news
@@ -36,13 +37,12 @@ const putcontact = () => ({
 export const listnews = () => {
     return function (dispatch) {
         axios
-            .get(`${process.env.REACT_APP_API_NEW}`, {
+            .get("http://localhost:8080/api/new", {
                 headers: {
                     apikey: '691c5597-e7d2-4c06-af49-f9369b367783',
                 }
             })
             .then((resp) => {
-                console.log("resp", resp)
                 dispatch(getNews(resp.data))
             })
             .catch((error) => console.log(error))
@@ -52,7 +52,7 @@ export const listnews = () => {
 export const listnew = (id) => {
     return function (dispatch) {
         axios
-            .get(`${process.env.REACT_APP_API_NEW}/${id}`, {
+            .get(`http://localhost:8080/api/new/${id}`, {
                 headers: {
                     apikey: '691c5597-e7d2-4c06-af49-f9369b367783',
                 }
@@ -68,12 +68,12 @@ export const listnew = (id) => {
 export const listsearchnews = (title) => {
     return function (dispatch) {
         axios
-            .get(`${process.env.REACT_APP_API_NEWS}`, {
+            .get("http://localhost:8080/api/news", {
                 headers: {
                     apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
                 },
                 params: {
-                    SearchNew: title
+                   'Search New': title
                 }
             })
             .then((resp) => {

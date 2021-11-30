@@ -6,49 +6,42 @@ import { Link } from 'react-router-dom';
 class Detail extends React.Component {
 
     render() {
-        
-        const shownews = this.props.news.map((news, index) => {
-
-            return (
-                <div className="detail">
-                    <div className="detail__infor">
-                        <div className="detail__infor--me">
-                            <Information />
-                        </div>
-                    </div>
-                    <div className="detail__content">
-                        <div className="detail__content--details">
-                            <div className="detail__content--details-image">
-                                <img src={(`${news.image}`)} alt="anh" />
-                            </div>
-                            <div className="detail__content--details-title">
-                                {news.title}
-                            </div>
-                            <div className="detail__content--details-date">
-                                <div className="detail__content--details-date-datetime">
-                                    {news.createdate}
-                                </div>
-                                <div className="detail__content--details-date-cetogory">
-                                    {news.cetogory}
-                                </div>
-                            </div>
-                            <hr style={{ width: '40%', marginLeft: '2rem' }} />
-                            <div className="detail__content--details-summary">
-                                {news.content}
-                            </div>
-
-                        </div>
-                        <Link to="/Home"><button> <h2> <i className="fas fa-arrow-left"></i> ALL posts </h2></button></Link>
-                    </div>
-
-                </div>
-            )
-        })
+        console.log(this.props.news);
         return (
-            <div>
-                {shownews}
+            <div className="detail">
+                <div className="detail__infor">
+                    <div className="detail__infor--me">
+                        <Information />
+                    </div>
+                </div>
+                <div className="detail__content">
+                    <div className="detail__content--details">
+                        <div className="detail__content--details-image">
+                            <img src={(`${this.props.news.image}`)} alt="anh" />
+                        </div>
+                        <div className="detail__content--details-title">
+                            {this.props.news.title}
+                        </div>
+                        <div className="detail__content--details-date">
+                            <div className="detail__content--details-date-datetime">
+                                {this.props.news.createdate}
+                            </div>
+                            <div className="detail__content--details-date-cetogory">
+                                {this.props.news.cetogory}
+                            </div>
+                        </div>
+                        <hr style={{ width: '40%', marginLeft: '2rem' }} />
+                        <div className="detail__content--details-summary">
+                            {this.props.news.content}
+                        </div>
+
+                    </div>
+                    <Link to="/Home"><button> <h2> <i className="fas fa-arrow-left"></i> ALL posts </h2></button></Link>
+                </div>
+
             </div>
-        );
+        )
+
 
     }
 }

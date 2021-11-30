@@ -2,7 +2,8 @@ import * as types from "./actionType"
 
 const initialState = {
     news: [],
-    loading: true
+    loading: true,
+    newss : {}
 }
 
 const usersReducers = (state = initialState, action) => {
@@ -17,7 +18,13 @@ const usersReducers = (state = initialState, action) => {
         case types.GET_SEARCH_NEWS:
             return {
                 ...state,
-                news: action.payload,
+                newss: action.payload,
+                loading: false
+            }
+        case types.GET_NEW:
+            return {
+                ...state,
+                newss: action.payload,
                 loading: false
             }
         case types.GET_CONTACT:

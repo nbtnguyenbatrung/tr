@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import '../css/home.scss';
 import New from "./New";
-import { listnews } from "../redux/actions";
+import { listnews, listsearchnews } from "../redux/actions";
 
 // class Home extends React.Component {
 
@@ -119,21 +119,28 @@ import { listnews } from "../redux/actions";
 const Home = () => {
     let dispatch = useDispatch()
     const [title, settitle] = useState("");
-    const [morepost, setmorepost] = useState(2);
-    const [shownew, setshownews] = useState([]);
     const { news } = useSelector((state) => state.data)
 
     useEffect(() => {
         dispatch(listnews())
-        
     }, [])
 
-    
+
+    const handletitleChange = function (e) {
+        settitle(e.target.value)
+    };
+
+    const handleSubmit = (event) => {
+        dispatch(listsearchnews(title))
+
+    };
+
     return (
+        
         <div className="miniblog">
             <div className="miniblog__search">
-                <input type="text" placeholder="title" onChange={(event) => this.handletitleChange(event)}></input>
-                <button onClick={(event) => this.handleSubmit(event)}>Search</button>
+                <input type="text" placeholder="title" onChange={(event) => handletitleChange(event)}></input>
+                <button onClick={(event) => handleSubmit(event)}>Search</button>
             </div>
             <div className="miniblog__infor">
                 <div className="miniblog__infor--me">
@@ -142,10 +149,10 @@ const Home = () => {
 
             </div>
             <div className="miniblog__posts">
-                {news && news.map((news) => (
+                {news.map((news) => (
                     <New new={news} />
                 ))}
-                <button onClick={() => this.handleSubmitMorePost()} >
+                <button  >
                     <h2>More posts <i className="fa-solid fa-arrow-right"></i> </h2>
                 </button>
             </div>

@@ -6,7 +6,7 @@ import rootReducer from "./root-reducer"
 
 const middewares = [reduxThunk]
 
-  middewares.push(logger);
+middewares.push(logger);
 
 
 const store = createStore(rootReducer, applyMiddleware(...middewares))
