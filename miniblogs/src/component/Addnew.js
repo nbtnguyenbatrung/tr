@@ -73,7 +73,7 @@ class Addnew extends React.Component{
      handleSubmit = (event) => {
         
         axios
-          .post("/api/new", this.state.news, {
+          .post("http://localhost:8080/api/new", this.state.news, {
             headers: {
               apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
             },

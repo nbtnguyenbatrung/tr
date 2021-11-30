@@ -16,3 +16,5 @@ https://cdnimg.vietnamplus.vn/uploaded/xpcwvovt/2021_02_09/cat_ba.jpg
 
 https://khoanh24.com/uploads/w750//2018/04/21/icon-thailand5adaaadbd7962_baa8771aa01a3775b9d3a17f0347587b.jpg
 
+"proxy": "http://localhost:8080",
+"^6.0.2"

@@ -16,7 +16,7 @@ class Information extends React.Component{
 
     componentDidMount(){
         axios
-            .get("/api/new", {
+            .get("http://localhost:8080/api/new", {
                 headers: {
                     apikey: '691c5597-e7d2-4c06-af49-f9369b367783',
                 }

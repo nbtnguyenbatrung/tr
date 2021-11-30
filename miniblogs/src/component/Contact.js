@@ -18,13 +18,12 @@ class Contact extends React.Component {
     componentDidMount() {
 
         axios
-            .get("/api/contact", {
+            .get("http://localhost:8080/api/contact", {
                 headers: {
                     apikey: '691c5597-e7d2-4c06-af49-f9369b367783',
                 }
             })
             .then(res => {
-                console.log(res.data.id);
                 this.setState({
                     contact: {
                         id: res.data.id,
@@ -73,7 +72,7 @@ class Contact extends React.Component {
         if (this.state.contact.id == null) {
             event.preventDefault();
             axios
-                .post("/api/contact", this.state.contact, {
+                .post("http://localhost:8080/api/contact", this.state.contact, {
                     headers: {
                         apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
                     },
@@ -86,7 +85,7 @@ class Contact extends React.Component {
         else {
             event.preventDefault();
             axios
-                .put("/api/contact" + this.state.contact.id, this.state.contact, {
+                .put("http://localhost:8080/api/contact/" + this.state.contact.id, this.state.contact, {
                     headers: {
                         apikey: "691c5597-e7d2-4c06-af49-f9369b367783",
                     },
