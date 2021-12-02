@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 class Detail extends React.Component {
 
     render() {
-        console.log(this.props.news);
         return (
             <div className="detail">
                 <div className="detail__infor">
@@ -36,7 +35,7 @@ class Detail extends React.Component {
                         </div>
 
                     </div>
-                    <Link to="/Home"><button> <h2> <i className="fas fa-arrow-left"></i> ALL posts </h2></button></Link>
+                    <Link to="/"><button> <h2> <i className="fas fa-arrow-left"></i> ALL posts </h2></button></Link>
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 
 import './App.css';
-import {Switch, Route } from 'react-router-dom'
+import {BrowserRouter ,Switch, Route } from 'react-router-dom'
 import Home from './component/Home';
 import About from './component/About';
 import Contact from './component/Contact';
@@ -10,6 +10,7 @@ import Detailchild from './component/Detailchild';
 import Addnew from './component/Addnew';
 function App() {
   return (
+    <BrowserRouter>
     <div>
       <Miniblogs/>
         <Switch>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/:somestring" component={Error}/>
         </Switch> 
      </div>
+     </BrowserRouter>
   );
 }
 

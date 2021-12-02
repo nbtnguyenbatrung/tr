@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../css/information.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { listnews, listsearchnews } from "../redux/actions";
+import { loadNewsStart, loadNewsSuccess } from "../redux/actions";
 
 // class Information extends React.Component{
 
@@ -79,7 +79,8 @@ const Information = () => {
     const { news } = useSelector((state) => state.data)
 
     useEffect(() => {
-        dispatch(listnews())
+
+        dispatch(loadNewsStart())
     }, [])
 
     return (
@@ -95,7 +96,8 @@ const Information = () => {
                 <div className="information__future--title">
                     Featured Posts :
                 </div>
-                {news.slice(0 ,5).map((news) => (
+                
+                { news.slice(0, 5).map((news) => (
                     <div className="information__future--content1">
                         <Link to={"/Detail/" + news.id}>{news.title}</Link>
                     </div>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import '../css/home.scss';
 import New from "./New";
-import { listnews, listsearchnews } from "../redux/actions";
+import { loadNewsStart ,loadNewsSuccess, getSearchNewStart , getSearchNewSuccess} from "../redux/actions";
 
 // class Home extends React.Component {
 
@@ -116,13 +116,16 @@ import { listnews, listsearchnews } from "../redux/actions";
 //     }
 // }
 
+
 const Home = () => {
-    let dispatch = useDispatch()
+    const dispatch = useDispatch()
     const [title, settitle] = useState("");
-    const { news } = useSelector((state) => state.data)
+    const { news } = useSelector(state => state.data)
 
     useEffect(() => {
-        dispatch(listnews())
+        
+        dispatch(loadNewsStart())
+        
     }, [])
 
 
@@ -131,8 +134,7 @@ const Home = () => {
     };
 
     const handleSubmit = (event) => {
-        dispatch(listsearchnews(title))
-
+        dispatch(getSearchNewStart(title))
     };
 
     return (
@@ -149,9 +151,11 @@ const Home = () => {
 
             </div>
             <div className="miniblog__posts">
-                {news.map((news) => (
-                    <New new={news} />
-                ))}
+            
+                { news && news.map((news) => (
+                    <New new={news}/>
+                    ))
+                }
                 <button  >
                     <h2>More posts <i className="fa-solid fa-arrow-right"></i> </h2>
                 </button>

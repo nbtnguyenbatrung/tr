@@ -1,8 +1,7 @@
-import React,{useState,useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import { useParams } from "react-router";
 import Detail from "./Detail";
-import axios from "axios";
-import { listnew } from "../redux/actions";
+import { getNewStart , getNewSuccess} from "../redux/actions";
 import { useDispatch, useSelector } from 'react-redux';
 
 // const Detailchild = (props) => {
@@ -33,14 +32,14 @@ const Detailchild = () => {
     let dispatch = useDispatch()
     let { id } = useParams()
     const { newss } = useSelector((state) => state.data)
-    
     useEffect(() => {
-        dispatch(listnew(id))
-    }, [id])
+        
+        dispatch(getNewStart(id))
+    }, [])
 
     
     return(
-        <Detail news={newss} />
+        <Detail news= {newss} />
     )
 
 }
